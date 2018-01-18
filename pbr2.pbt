@@ -4,5 +4,5 @@ Save Format v3.0(19990112)
 @end;
 appname "pbr2";
 applib "pbr2.pbl";
-LibList "pbr2.pbl;new1.pbl";
+LibList "pbr2.pbl";
 type "pb";
