@@ -6,7 +6,7 @@ end type
 end forward
 
 global type w_pbr2_sheet3 from w_pbr2_basesheet
-string Tag="Untitled for Sheet 3"
+string Tag="Untitled for Sheet 3a"
 end type
 global w_pbr2_sheet3 w_pbr2_sheet3
 

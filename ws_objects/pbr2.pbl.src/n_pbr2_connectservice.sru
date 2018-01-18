@@ -113,6 +113,13 @@ public function integer of_connectdb ();//*-------------------------------------
 //*  Make a connection to the database
 //*--------------------------------------------------------*/
 /*  Actual DB connection */
+
+// Profile PB Demo DB V2017R2
+SQLCA.DBMS = "ODBC"
+SQLCA.AutoCommit = False
+SQLCA.DBParm = "ConnectString='DSN=PB Demo DB V2017R2;UID=dba;PWD=sql'"
+
+
 Connect using SQLCA;
 
 If SQLCA.SQLCode <> 0 Then
