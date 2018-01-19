@@ -43,6 +43,6 @@ fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
 fontfamily fontfamily = swiss!
 string facename = "Tahoma"
-string text = "guojun1212121"
+string text = "guojun2"
 end type
 
