@@ -34,7 +34,7 @@ end on
 type cb_1 from commandbutton within w_21
 integer x = 782
 integer y = 456
-integer width = 498
+integer width = 581
 integer height = 132
 integer taborder = 10
 integer textsize = -12
@@ -43,6 +43,6 @@ fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
 fontfamily fontfamily = swiss!
 string facename = "Tahoma"
-string text = "guojun121212"
+string text = "guojun1212121"
 end type
 
