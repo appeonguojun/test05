@@ -2,12 +2,14 @@
 forward
 global type w_21 from window
 end type
+type cb_2 from commandbutton within w_21
+end type
 type cb_1 from commandbutton within w_21
 end type
 end forward
 
 global type w_21 from window
-integer width = 4754
+integer width = 4756
 integer height = 1980
 boolean titlebar = true
 string title = "Untitled"
@@ -18,23 +20,42 @@ boolean resizable = true
 long backcolor = 67108864
 string icon = "AppIcon!"
 boolean center = true
+cb_2 cb_2
 cb_1 cb_1
 end type
 global w_21 w_21
 
 on w_21.create
+this.cb_2=create cb_2
 this.cb_1=create cb_1
-this.Control[]={this.cb_1}
+this.Control[]={this.cb_2,&
+this.cb_1}
 end on
 
 on w_21.destroy
+destroy(this.cb_2)
 destroy(this.cb_1)
 end on
 
+type cb_2 from commandbutton within w_21
+integer x = 172
+integer y = 75
+integer width = 456
+integer height = 132
+integer taborder = 20
+integer textsize = -12
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "none222222"
+end type
+
 type cb_1 from commandbutton within w_21
-integer x = 782
-integer y = 456
-integer width = 581
+integer x = 784
+integer y = 455
+integer width = 580
 integer height = 132
 integer taborder = 10
 integer textsize = -12
