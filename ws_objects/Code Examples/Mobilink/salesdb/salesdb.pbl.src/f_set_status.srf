@@ -1,0 +1,14 @@
+﻿$PBExportHeader$f_set_status.srf
+global type f_set_status from function_object
+end type
+
+forward prototypes
+global subroutine f_set_status (long order_id, string status, string notes)
+end prototypes
+
+global subroutine f_set_status (long order_id, string status, string notes);
+// Update order status
+UPDATE "Orders" SET status = :status, notes = :notes
+WHERE order_id = :order_id;
+end subroutine
+

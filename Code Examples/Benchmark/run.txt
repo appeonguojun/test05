@@ -1,0 +1,35 @@
+start session
+set debug TRUE
+scc get connect properties "D:\TestCase\Code Examples\Benchmark\benchmark.pbw"
+scc set connect property logfile ".\bootstrap.log"
+;scc set connect property provider "Microsoft Visual SourceSafe" 
+;scc set connect property localprojpath "D:\TestCase\Build\main.pbl"
+;scc set connect property project "$/09-workspace/guojun/Build", KUBAAAAA
+;scc set connect property userid "guojun"
+;scc set connect property password "appeon"
+;scc set target ".\build\main.pbl\Benchmark.pbt" refresh_all importonly
+;scc exclude liblist ".\build\pbdom170.pbd\pbdom170.pbd" ".\build\pbejbclient170.pbd\pbejbclient170.pbd" ".\build\pbsoapclient170.pbd\pbsoapclient170.pbd"
+;scc connect
+
+;scc set connect property project ".\build"
+;scc set connect property project "$/09-workspace/guojun/Build", KUBAAAAA
+
+;scc set connect property userid "guojun"
+;scc set connect property password "appeon"
+;scc set connect property localprojpath ".\"
+;scc set connect property project "\\network_computer\PBNative_Archive\qadb"
+;scc set connect property deletetempfiles false
+;scc connect
+scc connect offline
+scc set target "D:\TestCase\Code Examples\Benchmark\benchmark.pbt" refresh_all importonly
+;scc exclude liblist ".\build\pbdom170.pbd\pbdom170.pbd" ".\build\pbejbclient170.pbd\pbejbclient170.pbd" ".\build\pbsoapclient170.pbd\pbsoapclient170.pbd"
+
+;scc refresh target 3pass
+scc refresh target full
+build application full
+build executable D:\TestCase\Code Examples\Benchmark\test.exe
+;scc refresh target migrate
+;scc refresh target incremental
+;scc refresh target full
+scc close
+end session 

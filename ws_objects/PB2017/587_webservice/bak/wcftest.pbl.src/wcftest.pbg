@@ -1,0 +1,14 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "wcftest.pbl" "";
+@end;
+@begin Objects 
+ "wcftest.sra" "wcftest.pbl";
+ "p_wcftest_wsproxy.srj" "wcftest.pbl";
+ "m_wcftest_main.srm" "wcftest.pbl";
+ "n_cst_webapi.sru" "wcftest.pbl";
+ "n_inet.sru" "wcftest.pbl";
+ "n_iresult.sru" "wcftest.pbl";
+ "w_wcftest_about.srw" "wcftest.pbl";
+ "w_wcftest_main.srw" "wcftest.pbl";
+@end;

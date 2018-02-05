@@ -1,0 +1,23 @@
+﻿$PBExportHeader$f_check_db_result.srf
+global type f_check_db_result from function_object
+end type
+
+forward prototypes
+global function boolean f_check_db_result (string msg, boolean commit_when_successful)
+end prototypes
+
+global function boolean f_check_db_result (string msg, boolean commit_when_successful);
+if sqlca.sqlcode = 0 then
+	// operation succeed
+	if commit_when_successful then
+		COMMIT;
+	end if
+	return true
+else
+	// operation failed
+	MessageBox("Error", msg + crlf + "(" + string(sqlca.sqlcode) + ") " + sqlca.SqlErrText)
+	ROLLBACK;
+	return false
+end if
+end function
+

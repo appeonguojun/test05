@@ -1,0 +1,26 @@
+﻿$PBExportHeader$f_get_next_cust_id.srf
+global type f_get_next_cust_id from function_object
+end type
+
+forward prototypes
+global function boolean f_get_next_cust_id (ref long cust_id)
+end prototypes
+
+global function boolean f_get_next_cust_id (ref long cust_id);
+// Get the next available customer id from the pool
+// return false if no id is left
+
+int ind
+
+SELECT min(pool_cust_id) INTO :cust_id:ind FROM CustomerIDPool;
+
+if ind < 0 then
+	return false
+end if
+
+DELETE FROM CustomerIDPool WHERE pool_cust_id = :cust_id;
+
+return true
+
+end function
+

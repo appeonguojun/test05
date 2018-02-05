@@ -1,0 +1,17 @@
+﻿$PBExportHeader$f_delete_order.srf
+global type f_delete_order from function_object
+end type
+
+forward prototypes
+global subroutine f_delete_order (long order_id)
+end prototypes
+
+global subroutine f_delete_order (long order_id);
+
+// delete order by order_id
+DELETE FROM "Orders" WHERE order_id = :order_id;
+
+f_check_db_result("Error deleting order.", true)
+
+end subroutine
+

@@ -1,0 +1,10 @@
+Save Format v3.0(19990112)
+@begin Unchecked
+@end;
+@begin Targets
+ 0 "eatmemory\\eatmemory.pbt";
+ 1 "PB2017\\587_webservice\\test\\wcftest.pbt";
+ 2 "PB2017\\587_webservice\\bak\\wcftest.pbt";
+@end;
+DefaultTarget "PB2017\\587_webservice\\bak\\wcftest.pbt";
+DefaultRemoteTarget "PB2017\\587_webservice\\bak\\wcftest.pbt";

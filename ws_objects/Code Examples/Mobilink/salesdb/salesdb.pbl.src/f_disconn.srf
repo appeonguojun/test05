@@ -1,0 +1,13 @@
+﻿$PBExportHeader$f_disconn.srf
+global type f_disconn from function_object
+end type
+
+forward prototypes
+global subroutine f_disconn ()
+end prototypes
+
+global subroutine f_disconn ();
+// disconnect from DB
+disconnect using sqlca;
+end subroutine
+

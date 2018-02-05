@@ -1,0 +1,22 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "testvss.pbl" "";
+@end;
+@begin Objects 
+ "testvss.sra" "testvss.pbl";
+ "m_testvss_frame.srm" "testvss.pbl";
+ "m_testvss_sheet.srm" "testvss.pbl";
+ "n_testvss_sheetmanager.sru" "testvss.pbl";
+ "w_testvss_about.srw" "testvss.pbl";
+ "w_testvss_basesheet.srw" "testvss.pbl";
+ "w_testvss_frame.srw" "testvss.pbl";
+ "w_testvss_sheet1.srw" "testvss.pbl";
+ "w_testvss_sheet2.srw" "testvss.pbl";
+ "w_testvss_sheet3.srw" "testvss.pbl";
+ "w_testvss_sheet4.srw" "testvss.pbl";
+ "w_testvss_sheet5.srw" "testvss.pbl";
+ "w_testvss_sheet6.srw" "testvss.pbl";
+ "w_testvss_sheet7.srw" "testvss.pbl";
+ "w_testvss_sheet8.srw" "testvss.pbl";
+ "w_testvss_toolbars.srw" "testvss.pbl";
+@end;

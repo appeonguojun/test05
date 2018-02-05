@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<appeon_license id="1473321197937"
+ signature="eqCHCo2ECMewje6qigpvBZEhV+g=0Ii82tCd/BL+qUjbBLPEbPu3fexG/d+DAKziBQucxXHFK6mvf9vXBSQ=="
+>
+  <general
+    type="ENTERPRISE"
+    area="appeon"
+    appeon_type=".Net"
+    version="2016"
+    productkey="*"
+    activated="unactivated"
+    days="45"
+    created_date="2016-09-08"
+    activate_valid_days="30"
+    support="2016-09-08~2017-09-08"
+    change_title_flag="true"
+    title="Unactivated -"
+    cluster="true"
+    instance="*"
+    feature_allow_flag="0000"
+    universal="true"
+    inner_version="6.7"
+    control_type="sessions"
+    max_apbservers="1"
+    support_offline="true"
+  />
+  <environment
+    server_id="Kg=="
+    serverid_exact="false"
+    cpu_check="false"
+    cpus="*"
+    cpu_core="*"
+    cpu_exact="false"
+    cpu_type="physical"
+    os="*"
+    server="*"
+  />
+  <license component="ax" applications="*" sessions="*" />
+ <license component="mobile" applications="*" sessions="*" />
+</appeon_license>

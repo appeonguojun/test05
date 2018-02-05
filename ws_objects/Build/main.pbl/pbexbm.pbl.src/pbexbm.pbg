@@ -1,0 +1,24 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "pbexbm.pbl" "";
+@end;
+@begin Objects 
+ "benchmark.sra" "pbexbm.pbl";
+ "d_benchmark_report.srd" "pbexbm.pbl";
+ "d_dddw_cust.srd" "pbexbm.pbl";
+ "d_dddw_fin_code.srd" "pbexbm.pbl";
+ "d_dddw_sales_reps.srd" "pbexbm.pbl";
+ "d_sales_orders.srd" "pbexbm.pbl";
+ "f_empty.srf" "pbexbm.pbl";
+ "f_get_profile.srf" "pbexbm.pbl";
+ "f_set_profile.srf" "pbexbm.pbl";
+ "f_tak.srf" "pbexbm.pbl";
+ "p_benchmark_machine32.srj" "pbexbm.pbl";
+ "p_benchmark_pcode.srj" "pbexbm.pbl";
+ "u_cst_timer.sru" "pbexbm.pbl";
+ "w_benchmark.srw" "pbexbm.pbl";
+ "w_center.srw" "pbexbm.pbl";
+ "w_empty.srw" "pbexbm.pbl";
+ "w_machine.srw" "pbexbm.pbl";
+ "w_report.srw" "pbexbm.pbl";
+@end;

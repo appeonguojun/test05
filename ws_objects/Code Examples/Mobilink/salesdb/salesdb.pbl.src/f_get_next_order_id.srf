@@ -1,0 +1,26 @@
+﻿$PBExportHeader$f_get_next_order_id.srf
+global type f_get_next_order_id from function_object
+end type
+
+forward prototypes
+global function boolean f_get_next_order_id (ref long order_id)
+end prototypes
+
+global function boolean f_get_next_order_id (ref long order_id);
+// Get the next available order id from the pool
+// return false if no id is left
+
+int ind
+
+SELECT min(pool_order_id) INTO :order_id:ind FROM OrderIDPool;
+
+if ind < 0 then
+	return false
+end if
+
+DELETE FROM OrderIDPool WHERE pool_order_id = :order_id;
+
+return true
+
+end function
+

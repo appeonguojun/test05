@@ -1,0 +1,34 @@
+﻿$PBExportHeader$gf_salesdb_sync.srf
+global type gf_salesdb_sync from function_object
+end type
+
+forward prototypes
+global function long gf_salesdb_sync (syncparm parms)
+end prototypes
+
+global function long gf_salesdb_sync (syncparm parms);nvo_salesdb_mlsync  l_uosync
+long		rc
+double		dRC
+
+l_uosync = CREATE nvo_salesdb_mlsync
+if IsValid(l_uosync) then
+	//  This gets the syncparm settings from the previous sync attempt
+	gf_get_syncsettings_from_db(sqlca, l_uosync.syncregistrykey, parms)
+	l_uosync.SetParm(parms)
+	if l_uosync.usewindow then
+		//  This runs dbmlsync and displays progress in the feedback window
+		OpenWithParm(w_salesdb_syncprogress, l_uosync)
+		dRC = Message.DoubleParm
+		rc = dRC
+	else
+		//  To run dbmlsync quietly
+		rc = l_uosync.Synchronize()	
+	end if
+	destroy l_uosync
+else
+	messagebox("Usage Error", "nvo_salesdb_mlsync was not instantiated correctly.")
+	rc = -1
+end if
+return rc
+end function
+

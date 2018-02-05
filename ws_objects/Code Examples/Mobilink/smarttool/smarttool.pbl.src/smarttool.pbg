@@ -1,0 +1,17 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "smarttool.pbl" "";
+@end;
+@begin Objects 
+ "smarttool.sra" "smarttool.pbl";
+ "gf_get_syncsettings_from_db.srf" "smarttool.pbl";
+ "gf_prompt_new_dbpassword.srf" "smarttool.pbl";
+ "gf_prompt_new_mlpassword.srf" "smarttool.pbl";
+ "gf_save_syncsettings.srf" "smarttool.pbl";
+ "s_new_password.srs" "smarttool.pbl";
+ "w_login_prompt.srw" "smarttool.pbl";
+ "w_prompt_new_dbpassword.srw" "smarttool.pbl";
+ "w_prompt_new_mlpassword.srw" "smarttool.pbl";
+ "w_smarttool_sync_options.srw" "smarttool.pbl";
+ "w_smarttool_syncprogress.srw" "smarttool.pbl";
+@end;

@@ -1,0 +1,17 @@
+﻿$PBExportHeader$f_conn.srf
+global type f_conn from function_object
+end type
+
+forward prototypes
+global subroutine f_conn ()
+end prototypes
+
+global subroutine f_conn ();sqlca.dbms='odb'
+sqlca.dbparm="ConnectString='DSN=SalesDB_remote;UID=dba'"
+OpenWithParm(w_login_prompt, sqlca)
+
+// establish DB connection
+connect using sqlca;
+
+end subroutine
+

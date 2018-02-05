@@ -1,0 +1,53 @@
+﻿$PBExportHeader$f_create_order.srf
+global type f_create_order from function_object
+end type
+
+forward prototypes
+global function string f_create_order (string customer, string product, long emp_id, long disc, long quant)
+end prototypes
+
+global function string f_create_order (string customer, string product, long emp_id, long disc, long quant);
+// return errMsg
+// errMsg is not empty only if customer or product cannot be found or cannot create new customer/order
+
+long order_id, cust_id, prod_id
+
+// if no new order id available
+if not f_get_next_order_id(order_id) then
+	return "No more order id available." + crlf + "Synchronize current changes to consolidated database to obtain more."
+end if
+
+SELECT cust_id INTO :cust_id FROM Customer
+WHERE cust_name LIKE :customer;
+
+if sqlca.sqlcode = 100 then
+	// Customer not found, create new one
+
+	string err
+	err = f_create_customer(cust_id, customer)
+	
+	if err <> "" then
+		return err
+	end if
+end if
+
+if sqlca.sqlcode <> 0 then
+	return ""
+end if
+
+SELECT prod_id INTO :prod_id FROM Product
+WHERE prod_name LIKE :product;
+
+if sqlca.sqlcode = 100 then
+	return "Product " + product + " not found."
+elseif sqlca.sqlcode <> 0 then
+	return ""
+end if
+
+// Create new order
+INSERT INTO "Orders" (order_id, cust_id, prod_id, emp_id, disc, quant)
+VALUES (:order_id, :cust_id, :prod_id, :emp_id, :disc, :quant);
+
+return ""
+end function
+

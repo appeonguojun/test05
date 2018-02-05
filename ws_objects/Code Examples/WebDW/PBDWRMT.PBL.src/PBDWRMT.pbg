@@ -1,0 +1,11 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "PBDWRMT.PBL" "";
+@end;
+@begin Objects 
+ "remote_datawindow_appl.sra" "PBDWRMT.PBL";
+ "p_com_comp.srj" "PBDWRMT.PBL";
+ "nv_datastore.sru" "PBDWRMT.PBL";
+ "nv_remote_datawindow.sru" "PBDWRMT.PBL";
+ "nv_retreival_arg.sru" "PBDWRMT.PBL";
+@end;

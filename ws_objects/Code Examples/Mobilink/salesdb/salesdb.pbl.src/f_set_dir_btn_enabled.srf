@@ -1,0 +1,32 @@
+﻿$PBExportHeader$f_set_dir_btn_enabled.srf
+global type f_set_dir_btn_enabled from function_object
+end type
+
+forward prototypes
+global subroutine f_set_dir_btn_enabled (long row, long total)
+end prototypes
+
+global subroutine f_set_dir_btn_enabled (long row, long total);
+//////////////////////////////////////////////////////////
+//
+// Uncomment the following section after creating
+// w_orders
+//
+
+if row <= 1 then
+	m_salesdb.m_go.m_previous.enabled = false
+	w_orders.cb_prev.enabled = false
+else
+	m_salesdb.m_go.m_previous.enabled = true
+	w_orders.cb_prev.enabled = true
+end if
+
+if row >= total then
+	m_salesdb.m_go.m_next.enabled = false
+	w_orders.cb_next.enabled = false
+else
+	m_salesdb.m_go.m_next.enabled = true
+	w_orders.cb_next.enabled = true
+end if
+end subroutine
+

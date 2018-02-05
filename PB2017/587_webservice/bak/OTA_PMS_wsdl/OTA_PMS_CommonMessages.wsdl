@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:tns="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ota="http://www.opentravel.org/OTA/2003/05" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="OTA_PMS_CommonMessages" targetNamespace="http://www.opentravel.org/OTA/2003/05">
+	<wsdl:types>
+		<xs:schema>
+			<xs:import schemaLocation="oasis-200401-wss-wssecurity-secext-1.xsd" namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+			<xs:import schemaLocation="addressing.xsd" namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+			<xs:import schemaLocation="OTA2010A.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A7.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A3.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A1.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A10.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A6.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A9.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A8.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A0.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A2.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A5.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+			<xs:import schemaLocation="OTA2010A4.xsd" namespace="http://www.opentravel.org/OTA/2003/05"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="OTA_PMS_Security">
+		<wsdl:part name="OTA_PMS_Security" element="wsse:Security"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_PMS_MessageID">
+		<wsdl:part name="OTA_PMS_MessageID" element="wsa:MessageID"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_PMS_To">
+		<wsdl:part name="OTA_PMS_To" element="wsa:To"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_PMS_From">
+		<wsdl:part name="OTA_PMS_From" element="wsa:From"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_PMS_Action">
+		<wsdl:part name="OTA_PMS_Action" element="wsa:Action"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_PMS_RelatesTo">
+		<wsdl:part name="OTA_PMS_RelatesTo" element="wsa:RelatesTo"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_ReadRQ">
+		<wsdl:part name="OTA_ReadRQ" element="ota:OTA_ReadRQ"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_ResRetrieveRS">
+		<wsdl:part name="OTA_ResRetrieveRS" element="ota:OTA_ResRetrieveRS"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_HotelResNotifRQ">
+		<wsdl:part name="OTA_HotelResNotifRQ" element="ota:OTA_HotelResNotifRQ"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_HotelResNotifRS">
+		<wsdl:part name="OTA_HotelResNotifRS" element="ota:OTA_HotelResNotifRS"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_HotelInvCountNotifRQ">
+		<wsdl:part name="OTA_HotelInvCountNotifRQ" element="ota:OTA_HotelInvCountNotifRQ"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_HotelInvCountNotifRS">
+		<wsdl:part name="OTA_HotelInvCountNotifRS" element="ota:OTA_HotelInvCountNotifRS"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_HotelRateAmountNotifRQ">
+		<wsdl:part name="OTA_HotelRateAmountNotifRQ" element="ota:OTA_HotelRateAmountNotifRQ"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_HotelRateAmountNotifRS">
+		<wsdl:part name="OTA_HotelRateAmountNotifRS" element="ota:OTA_HotelRateAmountNotifRS"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_HotelBookingRuleNotifRQ">
+		<wsdl:part name="OTA_HotelBookingRuleNotifRQ" element="ota:OTA_HotelBookingRuleNotifRQ"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_HotelBookingRuleNotifRS">
+		<wsdl:part name="OTA_HotelBookingRuleNotifRS" element="ota:OTA_HotelBookingRuleNotifRS"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_PingRQ">
+		<wsdl:part name="OTA_PingRQ" element="ota:OTA_PingRQ"/>
+	</wsdl:message>
+	<wsdl:message name="OTA_PingRS">
+		<wsdl:part name="OTA_PingRS" element="ota:OTA_PingRS"/>
+	</wsdl:message>
+</wsdl:definitions>

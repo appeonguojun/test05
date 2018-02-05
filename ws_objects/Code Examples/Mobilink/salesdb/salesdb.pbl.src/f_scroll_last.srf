@@ -1,0 +1,23 @@
+﻿$PBExportHeader$f_scroll_last.srf
+global type f_scroll_last from function_object
+end type
+
+forward prototypes
+global subroutine f_scroll_last ()
+end prototypes
+
+global subroutine f_scroll_last ();
+//////////////////////////////////////////////////////////
+//
+// Uncomment the following section after creating
+// w_orders
+//
+
+// scroll to the last row
+
+int c
+c = w_orders.dw_orders.RowCount()
+w_orders.dw_orders.ScrollToRow(c)
+f_set_dir_btn_enabled(c, c)
+end subroutine
+

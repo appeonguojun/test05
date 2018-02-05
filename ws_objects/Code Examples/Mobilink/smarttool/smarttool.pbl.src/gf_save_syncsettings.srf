@@ -1,0 +1,46 @@
+﻿$PBExportHeader$gf_save_syncsettings.srf
+global type gf_save_syncsettings from function_object
+end type
+
+forward prototypes
+global function integer gf_save_syncsettings (transaction a_trans, string a_regkey, ref syncparm a_parms)
+end prototypes
+
+global function integer gf_save_syncsettings (transaction a_trans, string a_regkey, ref syncparm a_parms);long		rc
+string		sqlstmt
+string		keyvalue
+long		iCount
+
+rc = -1
+if IsNull(a_regkey) or a_regkey = "" then
+	return rc
+end if
+keyvalue = lower(a_regkey)
+if IsNull(a_parms.dbuser) then
+	a_parms.dbuser = ""
+end if
+if IsNull(a_parms.dbpass) then
+	a_parms.dbpass = ""
+end if
+if IsNull(a_parms.mluser) then
+	a_parms.mluser = ""
+end if
+if IsNull(a_parms.mlpass) then
+	a_parms.mlpass = ""
+end if
+SELECT count(*) into :iCount FROM syncsettings WHERE regkey = :keyvalue USING a_trans;
+if a_trans.sqlcode = 0 and iCount = 1 then
+	UPDATE syncsettings set dbuser = :a_parms.dbuser, dbpass = :a_parms.dbpass, &
+	mluser = :a_parms.mluser, mlpass = :a_parms.mlpass, &
+	encrypt = :a_parms.encryptionkey, authparms = :a_parms.authenticateparms & 
+	WHERE regkey = :keyvalue  USING a_trans;
+	rc = a_trans.sqlcode
+else
+	INSERT INTO syncsettings VALUES (:keyvalue, :a_parms.dbuser, :a_parms.dbpass, :a_parms.mluser,  &
+							:a_parms.mlpass, :a_parms.encryptionkey, :a_parms.authenticateparms) &
+							USING a_trans;
+	rc = a_trans.sqlcode							
+end if
+return rc
+end function
+

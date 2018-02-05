@@ -1,0 +1,32 @@
+﻿$PBExportHeader$f_scroll.srf
+global type f_scroll from function_object
+end type
+
+forward prototypes
+global subroutine f_scroll (long displacement)
+end prototypes
+
+global subroutine f_scroll (long displacement);
+
+//////////////////////////////////////////////////////////
+//
+// Uncomment the following section after creating
+// w_orders
+//
+
+long row, c, final
+row = Long(w_orders.dw_orders.Object.DataWindow.FirstRowOnPage)
+c = w_orders.dw_orders.RowCount()
+
+// Check out-of-bounce condition
+final = row + displacement
+if final < 1 then
+	final = 1
+elseif final > c then
+	final = c
+end if
+
+w_orders.dw_orders.ScrollToRow(final)
+f_set_dir_btn_enabled(final, c)
+end subroutine
+

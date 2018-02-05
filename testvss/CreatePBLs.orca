@@ -1,0 +1,30 @@
+start session
+
+scc get connect properties "testnew.pbw"
+scc connect
+scc set target "testvss.pbt" "REFRESH_All"
+
+;scc get latest version "testvss.pbt"
+;scc exclude liblist “Many proprietary PBDs excluded here”
+
+scc refresh target "full"
+scc close
+
+;File copies to happen here
+
+end session
+
+exit
+scc set target  "smartsoft.pbt" "REFRESH_All"
+scc refresh target "full"
+
+start session
+scc get connect properties "testnew.pbw"
+scc connect
+scc set target "testvss.pbt" "refresh_all"
+scc get latest version "testvss.pbt"
+;scc exclude liblist “Many proprietary PBDs excluded here”
+;scc set target "testvss.pbt" "outofdate exclude_checkout"
+scc refresh target "migrate"
+scc close
+pause

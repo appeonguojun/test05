@@ -1,0 +1,42 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "salesdb.pbl" "";
+@end;
+@begin Objects 
+ "salesdb.sra" "salesdb.pbl";
+ "d_orders.srd" "salesdb.pbl";
+ "f_approve_deny.srf" "salesdb.pbl";
+ "f_check_db_result.srf" "salesdb.pbl";
+ "f_conn.srf" "salesdb.pbl";
+ "f_create_customer.srf" "salesdb.pbl";
+ "f_create_order.srf" "salesdb.pbl";
+ "f_delete_order.srf" "salesdb.pbl";
+ "f_disconn.srf" "salesdb.pbl";
+ "f_get_next_cust_id.srf" "salesdb.pbl";
+ "f_get_next_order_id.srf" "salesdb.pbl";
+ "f_refresh_orders.srf" "salesdb.pbl";
+ "f_scroll.srf" "salesdb.pbl";
+ "f_scroll_last.srf" "salesdb.pbl";
+ "f_set_dir_btn_enabled.srf" "salesdb.pbl";
+ "f_set_status.srf" "salesdb.pbl";
+ "gf_get_syncsettings_from_db.srf" "salesdb.pbl";
+ "gf_prompt_new_dbpassword.srf" "salesdb.pbl";
+ "gf_prompt_new_mlpassword.srf" "salesdb.pbl";
+ "gf_salesdb_configure_sync.srf" "salesdb.pbl";
+ "gf_salesdb_sync.srf" "salesdb.pbl";
+ "gf_save_syncsettings.srf" "salesdb.pbl";
+ "p_salesdb.srj" "salesdb.pbl";
+ "m_salesdb.srm" "salesdb.pbl";
+ "s_new_password.srs" "salesdb.pbl";
+ "nvo_salesdb_mlsync.sru" "salesdb.pbl";
+ "w_about.srw" "salesdb.pbl";
+ "w_approve.srw" "salesdb.pbl";
+ "w_deny.srw" "salesdb.pbl";
+ "w_login_prompt.srw" "salesdb.pbl";
+ "w_new_order.srw" "salesdb.pbl";
+ "w_orders.srw" "salesdb.pbl";
+ "w_prompt_new_dbpassword.srw" "salesdb.pbl";
+ "w_prompt_new_mlpassword.srw" "salesdb.pbl";
+ "w_salesdb_sync_options.srw" "salesdb.pbl";
+ "w_salesdb_syncprogress.srw" "salesdb.pbl";
+@end;

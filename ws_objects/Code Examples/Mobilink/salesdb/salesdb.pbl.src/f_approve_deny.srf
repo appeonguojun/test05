@@ -1,0 +1,30 @@
+﻿$PBExportHeader$f_approve_deny.srf
+global type f_approve_deny from function_object
+end type
+
+forward prototypes
+global subroutine f_approve_deny (integer action_type)
+end prototypes
+
+global subroutine f_approve_deny (integer action_type);
+//////////////////////////////////////////////////////////
+//
+// Uncomment the following section after creating
+// w_orders
+//
+
+// Retrieve current row
+long row, order_id
+
+row = Long(w_orders.dw_orders.Object.DataWindow.FirstRowOnPage)
+order_id = w_orders.dw_orders.getItemNumber(row, 1)
+
+if action_type = APPROVE then
+	OpenWithParm(w_approve, order_id)
+else
+	OpenWithParm(w_deny, order_id)
+end if	
+
+f_refresh_orders(row)
+end subroutine
+

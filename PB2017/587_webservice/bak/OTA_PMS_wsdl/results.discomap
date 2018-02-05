@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_ReadRQ.xsd" filename="OTA2010A.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelBookingRuleNotifRQ.xsd" filename="OTA2010A0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelResNotifRS.xsd" filename="OTA2010A1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/schemas/oasis-200401-wss-wssecurity-secext-1.0.xsd" filename="oasis-200401-wss-wssecurity-secext-1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelBookingRuleNotifRS.xsd" filename="OTA2010A2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelResNotifRQ.xsd" filename="OTA2010A3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://pms.verticalbooking.com/pms_generic/OTA_PMS_CommonMessages.wsdl" filename="OTA_PMS_CommonMessages.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_PingRS.xsd" filename="OTA2010A4.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_PingRQ.xsd" filename="OTA2010A5.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/schemas/oasis-200401-wss-wssecurity-utility-1.0.xsd" filename="oasis-200401-wss-wssecurity-utility-1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/schemas/addressing.xsd" filename="addressing.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://pms.verticalbooking.com/pms_generic/OTA_PMS_CommonBindings.wsdl" filename="OTA_PMS_CommonBindings.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelInvCountNotifRS.xsd" filename="OTA2010A6.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://pms.verticalbooking.com/pms_generic/OTA_PMS_CommonPortTypes.wsdl" filename="OTA_PMS_CommonPortTypes.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_ResRetrieveRS.xsd" filename="OTA2010A7.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelRateAmountNotifRS.xsd" filename="OTA2010A8.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelRateAmountNotifRQ.xsd" filename="OTA2010A9.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://pms.verticalbooking.com/mainstay/OTA_PMS.php?wsdl" filename="OTA_PMS.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelInvCountNotifRQ.xsd" filename="OTA2010A10.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/schemas/xmldsig-core-schema.xsd" filename="xmldsig-core-schema.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/schemas/xml.xsd" filename="xml.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_VehicleCommonTypes.xsd" filename="OTA2003A2010A.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_CommonTypes.xsd" filename="OTA2003A2010A0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelPreferences.xsd" filename="OTA2003A2010A1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_PkgCommonTypes.xsd" filename="OTA2003A2010A2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelCommonTypes.xsd" filename="OTA2003A2010A3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_CruiseCommonTypes.xsd" filename="OTA2005B2010A.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_CommonPrefs.xsd" filename="OTA2003A2010A4.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_Profile.xsd" filename="OTA2003A2010A5.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_SimpleTypes.xsd" filename="OTA2003A2010A6.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_AirCommonTypes.xsd" filename="OTA2003A2010A7.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_AirPreferences.xsd" filename="OTA2003A2010A8.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_HotelReservation.xsd" filename="OTA2003A2010A9.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://pms.verticalbooking.com/pms_generic/opentravel/OTA_VehRetResRQ.xsd" filename="OTA2010A11.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

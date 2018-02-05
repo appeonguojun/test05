@@ -1,0 +1,37 @@
+﻿$PBExportHeader$gf_get_syncsettings_from_db.srf
+global type gf_get_syncsettings_from_db from function_object
+end type
+
+forward prototypes
+global function long gf_get_syncsettings_from_db (transaction a_trans, string a_regkey, ref syncparm a_parms)
+end prototypes
+
+global function long gf_get_syncsettings_from_db (transaction a_trans, string a_regkey, ref syncparm a_parms);long		rc
+string		s1, s2, s3, s4, s5, s6
+string		keyvalue
+
+keyvalue = lower(a_regkey)
+SELECT dbuser, dbpass, mluser, mlpass, encrypt, authparms & 
+INTO :s1, :s2, :s3, :s4, :s5, :s6  FROM syncsettings &
+WHERE regkey = :keyvalue  USING a_trans;
+
+if a_trans.sqlcode = 0 then
+		a_parms.dbuser = s1
+		a_parms.dbpass = s2
+		a_parms.mluser = s3
+		a_parms.mlpass = s4
+	if IsNull(s5) then
+		a_parms.encryptionkey = ""
+	else
+		a_parms.encryptionkey = s5
+	end if
+	if IsNull(s6) then 
+		a_parms.authenticateparms = ""
+	else
+		a_parms.authenticateparms = s6
+	end if
+end if
+rc =  a_trans.sqlcode
+return rc
+end function
+

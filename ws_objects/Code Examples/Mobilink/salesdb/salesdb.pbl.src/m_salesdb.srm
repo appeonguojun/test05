@@ -1,0 +1,691 @@
+﻿$PBExportHeader$m_salesdb.srm
+forward
+global type m_salesdb from menu
+end type
+type m_file from menu within m_salesdb
+end type
+type m_synchronize from menu within m_file
+end type
+type m_syncoptions from menu within m_file
+end type
+type m_changedbpassword from menu within m_file
+end type
+type m_changemobilinkpassword from menu within m_file
+end type
+type m_exit from menu within m_file
+end type
+type m_file from menu within m_salesdb
+m_synchronize m_synchronize
+m_syncoptions m_syncoptions
+m_changedbpassword m_changedbpassword
+m_changemobilinkpassword m_changemobilinkpassword
+m_exit m_exit
+end type
+type m_order from menu within m_salesdb
+end type
+type m_new from menu within m_order
+end type
+type m_approve from menu within m_order
+end type
+type m_deny from menu within m_order
+end type
+type m_delete from menu within m_order
+end type
+type m_order from menu within m_salesdb
+m_new m_new
+m_approve m_approve
+m_deny m_deny
+m_delete m_delete
+end type
+type m_go from menu within m_salesdb
+end type
+type m_previous from menu within m_go
+end type
+type m_next from menu within m_go
+end type
+type m_go from menu within m_salesdb
+m_previous m_previous
+m_next m_next
+end type
+type m_help from menu within m_salesdb
+end type
+type m_about from menu within m_help
+end type
+type m_help from menu within m_salesdb
+m_about m_about
+end type
+global type m_salesdb from menu
+m_file m_file
+m_order m_order
+m_go m_go
+m_help m_help
+end type
+end forward
+
+global type m_salesdb from menu
+m_file m_file
+m_order m_order
+m_go m_go
+m_help m_help
+end type
+global m_salesdb m_salesdb
+
+on m_salesdb.create
+m_salesdb=this
+call super::create
+this.text = "m_salesdb"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_file=create m_file
+this.m_order=create m_order
+this.m_go=create m_go
+this.m_help=create m_help
+this.Item[UpperBound(this.Item)+1]=this.m_file
+this.Item[UpperBound(this.Item)+1]=this.m_order
+this.Item[UpperBound(this.Item)+1]=this.m_go
+this.Item[UpperBound(this.Item)+1]=this.m_help
+end on
+
+on m_salesdb.destroy
+call super::destroy
+destroy(this.m_file)
+destroy(this.m_order)
+destroy(this.m_go)
+destroy(this.m_help)
+end on
+
+type m_file from menu within m_salesdb
+m_synchronize m_synchronize
+m_syncoptions m_syncoptions
+m_changedbpassword m_changedbpassword
+m_changemobilinkpassword m_changemobilinkpassword
+m_exit m_exit
+end type
+
+on m_file.create
+call super::create
+this.text = "File"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_synchronize=create m_synchronize
+this.m_syncoptions=create m_syncoptions
+this.m_changedbpassword=create m_changedbpassword
+this.m_changemobilinkpassword=create m_changemobilinkpassword
+this.m_exit=create m_exit
+this.Item[UpperBound(this.Item)+1]=this.m_synchronize
+this.Item[UpperBound(this.Item)+1]=this.m_syncoptions
+this.Item[UpperBound(this.Item)+1]=this.m_changedbpassword
+this.Item[UpperBound(this.Item)+1]=this.m_changemobilinkpassword
+this.Item[UpperBound(this.Item)+1]=this.m_exit
+end on
+
+on m_file.destroy
+call super::destroy
+destroy(this.m_synchronize)
+destroy(this.m_syncoptions)
+destroy(this.m_changedbpassword)
+destroy(this.m_changemobilinkpassword)
+destroy(this.m_exit)
+end on
+
+type m_synchronize from menu within m_file
+end type
+
+on m_synchronize.create
+call super::create
+this.text = "Synchronize"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_synchronize.destroy
+call super::destroy
+end on
+
+event clicked;long	rc
+// Start synchronization
+SetNull(g_syncparms.authenticateparms)
+rc = gf_salesdb_sync(g_syncparms) 
+if  rc <> 1 and rc <> 5 then
+	MessageBox("Error", " MobiLink Synchronization Error. ");
+End if
+
+// Fetch data
+f_refresh_orders(-1)
+end event
+
+type m_syncoptions from menu within m_file
+end type
+
+on m_syncoptions.create
+call super::create
+this.text = "Sync Options..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_syncoptions.destroy
+call super::destroy
+end on
+
+event clicked;// Open the Sync Options window
+gf_salesdb_configure_sync()
+
+// Fetch data
+f_refresh_orders(-1)
+
+end event
+
+type m_changedbpassword from menu within m_file
+end type
+
+on m_changedbpassword.create
+call super::create
+this.text = "Change DB Password"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_changedbpassword.destroy
+call super::destroy
+end on
+
+event clicked;MLSync		l_uosync
+long			rc
+string			errtext
+l_uosync = CREATE nvo_salesdb_mlsync
+if IsValid(l_uosync) then
+	rc = gf_prompt_new_dbpassword(sqlca, l_uosync, errtext)
+	messagebox("Change DB Password", errtext)
+end if
+destroy l_uosync
+
+end event
+
+type m_changemobilinkpassword from menu within m_file
+end type
+
+on m_changemobilinkpassword.create
+call super::create
+this.text = "Change MobiLInk Password"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_changemobilinkpassword.destroy
+call super::destroy
+end on
+
+event clicked;MLSync		l_uosync
+long			rc
+string			errtext
+l_uosync = CREATE nvo_salesdb_mlsync
+if IsValid(l_uosync) then
+	rc = gf_prompt_new_mlpassword(sqlca, l_uosync, errtext)
+	messagebox("Change ML Password", errtext)
+end if
+destroy l_uosync
+
+end event
+
+type m_exit from menu within m_file
+end type
+
+event clicked;// Terminate application
+f_disconn()
+Halt Close
+
+end event
+
+on m_exit.create
+call super::create
+this.text = "Exit"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_order from menu within m_salesdb
+m_new m_new
+m_approve m_approve
+m_deny m_deny
+m_delete m_delete
+end type
+
+on m_order.create
+call super::create
+this.text = "Order"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_new=create m_new
+this.m_approve=create m_approve
+this.m_deny=create m_deny
+this.m_delete=create m_delete
+this.Item[UpperBound(this.Item)+1]=this.m_new
+this.Item[UpperBound(this.Item)+1]=this.m_approve
+this.Item[UpperBound(this.Item)+1]=this.m_deny
+this.Item[UpperBound(this.Item)+1]=this.m_delete
+end on
+
+on m_order.destroy
+call super::destroy
+destroy(this.m_new)
+destroy(this.m_approve)
+destroy(this.m_deny)
+destroy(this.m_delete)
+end on
+
+type m_new from menu within m_order
+end type
+
+on m_new.create
+call super::create
+this.text = "New"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_new.destroy
+call super::destroy
+end on
+
+event clicked;open(w_new_order)
+end event
+
+type m_approve from menu within m_order
+end type
+
+on m_approve.create
+call super::create
+this.text = "Approve"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_approve.destroy
+call super::destroy
+end on
+
+event clicked;
+// Open w_deny
+f_approve_deny(APPROVE)
+end event
+
+type m_deny from menu within m_order
+end type
+
+on m_deny.create
+call super::create
+this.text = "Deny"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_deny.destroy
+call super::destroy
+end on
+
+event clicked;
+// Open w_deny
+f_approve_deny(DENY)
+end event
+
+type m_delete from menu within m_order
+end type
+
+on m_delete.create
+call super::create
+this.text = "Delete"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_delete.destroy
+call super::destroy
+end on
+
+event clicked;
+//////////////////////////////////////////////////////////
+//
+// Uncomment the following section after creating
+// w_orders
+//
+
+int response
+response = MessageBox("Confirmation", "Are you sure you want to delete this order?", Exclamation!, YesNo!)
+
+if response = 1 then
+	// find the order id and delete
+
+	long row, order_id
+
+	row = Long(w_orders.dw_orders.Object.DataWindow.FirstRowOnPage)
+	order_id = w_orders.dw_orders.getItemNumber(row, 1)
+
+	f_delete_order(order_id)
+	f_refresh_orders(-1)
+	
+end if
+end event
+
+type m_go from menu within m_salesdb
+m_previous m_previous
+m_next m_next
+end type
+
+on m_go.create
+call super::create
+this.text = "Go"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_previous=create m_previous
+this.m_next=create m_next
+this.Item[UpperBound(this.Item)+1]=this.m_previous
+this.Item[UpperBound(this.Item)+1]=this.m_next
+end on
+
+on m_go.destroy
+call super::destroy
+destroy(this.m_previous)
+destroy(this.m_next)
+end on
+
+type m_previous from menu within m_go
+end type
+
+on m_previous.create
+call super::create
+this.text = "Previous"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_previous.destroy
+call super::destroy
+end on
+
+event clicked;
+// display previous
+f_scroll(-1)
+
+end event
+
+type m_next from menu within m_go
+end type
+
+on m_next.create
+call super::create
+this.text = "Next"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_next.destroy
+call super::destroy
+end on
+
+event clicked;
+// display next
+f_scroll(1)
+
+end event
+
+type m_help from menu within m_salesdb
+m_about m_about
+end type
+
+on m_help.create
+call super::create
+this.text = "Help"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_about=create m_about
+this.Item[UpperBound(this.Item)+1]=this.m_about
+end on
+
+on m_help.destroy
+call super::destroy
+destroy(this.m_about)
+end on
+
+type m_about from menu within m_help
+end type
+
+on m_about.create
+call super::create
+this.text = "About..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_about.destroy
+call super::destroy
+end on
+
+event clicked;Open(w_about)
+end event
+

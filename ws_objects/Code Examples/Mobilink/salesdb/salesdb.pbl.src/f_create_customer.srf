@@ -1,0 +1,19 @@
+﻿$PBExportHeader$f_create_customer.srf
+global type f_create_customer from function_object
+end type
+
+forward prototypes
+global function string f_create_customer (ref long cust_id, string customer)
+end prototypes
+
+global function string f_create_customer (ref long cust_id, string customer);
+if not f_get_next_cust_id(cust_id) then
+	return "No more customer id available." + crlf + "Synchronize current changes to consolidated database to obtain more."
+end if	
+
+INSERT INTO Customer(cust_id, cust_name)
+VALUES(:cust_id, :customer);
+
+return ""
+end function
+

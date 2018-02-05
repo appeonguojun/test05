@@ -1,0 +1,47 @@
+﻿$PBExportHeader$f_refresh_orders.srf
+global type f_refresh_orders from function_object
+end type
+
+forward prototypes
+global subroutine f_refresh_orders (long row)
+end prototypes
+
+global subroutine f_refresh_orders (long row);
+//////////////////////////////////////////////////////////
+//
+// Uncomment the following section after creating
+// w_orders
+//
+
+// fetch fresh data from DB
+w_orders.dw_orders.Retrieve()
+commit;
+long c
+c = w_orders.dw_orders.RowCount()
+
+// enable/disable menu items
+if c = 0 then
+	m_salesdb.m_order.m_approve.enabled = false
+	m_salesdb.m_order.m_deny.enabled = false
+	m_salesdb.m_order.m_delete.enabled = false
+	
+	w_orders.cb_approve.enabled = false
+	w_orders.cb_deny.enabled = false
+else
+	m_salesdb.m_order.m_approve.enabled = true
+	m_salesdb.m_order.m_deny.enabled = true
+	m_salesdb.m_order.m_delete.enabled = true
+
+	w_orders.cb_approve.enabled = true
+	w_orders.cb_deny.enabled = true
+end if
+
+// reposition to row position
+if row >= 1 AND row <= c then
+	w_orders.dw_orders.ScrollToRow(row)
+	f_set_dir_btn_enabled(row, c)
+else
+	f_set_dir_btn_enabled(1, c)
+end if
+end subroutine
+
