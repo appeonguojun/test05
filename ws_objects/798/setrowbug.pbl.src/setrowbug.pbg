@@ -1,0 +1,9 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "setrowbug.pbl" "";
+@end;
+@begin Objects 
+ "t798.sra" "setrowbug.pbl";
+ "d_setrowbug.srd" "setrowbug.pbl";
+ "w_setrowbug.srw" "setrowbug.pbl";
+@end;
