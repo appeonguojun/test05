@@ -3,6 +3,8 @@ $PBExportComments$Generated MDI Sheet #1
 forward
 global type w_pbr2_sheet1 from w_pbr2_basesheet
 end type
+type cb_6 from commandbutton within w_pbr2_sheet1
+end type
 type cb_5 from commandbutton within w_pbr2_sheet1
 end type
 type dw_5 from datawindow within w_pbr2_sheet1
@@ -29,6 +31,7 @@ global type w_pbr2_sheet1 from w_pbr2_basesheet
 string tag = "Untitled for Sheet 1"
 integer width = 5115
 integer height = 2784
+cb_6 cb_6
 cb_5 cb_5
 dw_5 dw_5
 dw_4 dw_4
@@ -45,6 +48,7 @@ global w_pbr2_sheet1 w_pbr2_sheet1
 on w_pbr2_sheet1.create
 int iCurrent
 call super::create
+this.cb_6=create cb_6
 this.cb_5=create cb_5
 this.dw_5=create dw_5
 this.dw_4=create dw_4
@@ -56,21 +60,23 @@ this.cb_2=create cb_2
 this.cb_1=create cb_1
 this.dw_1=create dw_1
 iCurrent=UpperBound(this.Control)
-this.Control[iCurrent+1]=this.cb_5
-this.Control[iCurrent+2]=this.dw_5
-this.Control[iCurrent+3]=this.dw_4
-this.Control[iCurrent+4]=this.cb_4
-this.Control[iCurrent+5]=this.cb_3
-this.Control[iCurrent+6]=this.dw_3
-this.Control[iCurrent+7]=this.dw_2
-this.Control[iCurrent+8]=this.cb_2
-this.Control[iCurrent+9]=this.cb_1
-this.Control[iCurrent+10]=this.dw_1
+this.Control[iCurrent+1]=this.cb_6
+this.Control[iCurrent+2]=this.cb_5
+this.Control[iCurrent+3]=this.dw_5
+this.Control[iCurrent+4]=this.dw_4
+this.Control[iCurrent+5]=this.cb_4
+this.Control[iCurrent+6]=this.cb_3
+this.Control[iCurrent+7]=this.dw_3
+this.Control[iCurrent+8]=this.dw_2
+this.Control[iCurrent+9]=this.cb_2
+this.Control[iCurrent+10]=this.cb_1
+this.Control[iCurrent+11]=this.dw_1
 end on
 
 on w_pbr2_sheet1.destroy
 call super::destroy
 if IsValid(MenuID) then destroy(MenuID)
+destroy(this.cb_6)
 destroy(this.cb_5)
 destroy(this.dw_5)
 destroy(this.dw_4)
@@ -82,6 +88,21 @@ destroy(this.cb_2)
 destroy(this.cb_1)
 destroy(this.dw_1)
 end on
+
+type cb_6 from commandbutton within w_pbr2_sheet1
+integer x = 1659
+integer y = 1140
+integer width = 457
+integer height = 132
+integer taborder = 30
+integer textsize = -12
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "none"
+end type
 
 type cb_5 from commandbutton within w_pbr2_sheet1
 integer x = 3365
