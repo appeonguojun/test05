@@ -16,20 +16,20 @@ end type
 global testvss testvss
 
 on testvss.create
-appname = "testvss"
-message = create message
-sqlca = create transaction
-sqlda = create dynamicdescriptionarea
-sqlsa = create dynamicstagingarea
-error = create error
+appname="testvss"
+message=create message
+sqlca=create transaction
+sqlda=create dynamicdescriptionarea
+sqlsa=create dynamicstagingarea
+error=create error
 end on
 
 on testvss.destroy
-destroy( sqlca )
-destroy( sqlda )
-destroy( sqlsa )
-destroy( error )
-destroy( message )
+destroy(sqlca)
+destroy(sqlda)
+destroy(sqlsa)
+destroy(error)
+destroy(message)
 end on
 
 event open;//*-----------------------------------------------------------------*/
@@ -42,6 +42,6 @@ this.ToolBarFrameTitle = "MDI Application Toolbar"
 this.ToolBarSheetTitle = "MDI Application Toolbar"
 
 /*  Open MDI frame window  */
-Open ( w_testvss_frame )
+Open ( w_testvss_frame ) //
 end event
 

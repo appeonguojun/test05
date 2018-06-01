@@ -37,6 +37,9 @@ destroy(this.cb_ok)
 destroy(this.st_copyright)
 end on
 
+event open;//
+end event
+
 type cb_ok from commandbutton within w_testvss_about
 integer x = 407
 integer y = 348
@@ -56,7 +59,7 @@ end type
 event clicked;//*-----------------------------------------------------------------*/
 //*    clicked:  Close "About" window
 //*-----------------------------------------------------------------*/
-Close ( Parent )
+Close ( Parent )  
 end event
 
 type st_copyright from statictext within w_testvss_about
